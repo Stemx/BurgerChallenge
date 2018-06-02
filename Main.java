@@ -20,12 +20,13 @@ public class Main {
         hamburger.addAddition(Items.BACON);
         hamburger.addAddition(Items.BASIL);
         hamburger.addAddition(Items.PARSLEY_PESTO);
-        hamburger.addAddition(Items.KETCHUP);
+        hamburger.modifyAddition(2, Items.LETTUCE);
 
         deluxeBurger.setMeat(Items.CHICKEN_BURGER);
         deluxeBurger.setBread(Items.DARK_BREAD);
         deluxeBurger.addAddition(Items.COFFEE);
         deluxeBurger.addAddition(Items.CHIPS);
+        deluxeBurger.modifyAddition(1, Items.BEER);
 
         healthyBurger.setMeat(Items.VEGE_BURGER);
         healthyBurger.addAddition(Items.TOMATO);

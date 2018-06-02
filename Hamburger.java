@@ -41,12 +41,12 @@ public class Hamburger extends Burger {
     }
 
     public void modifyAddition(int position, Items item) {
-        System.out.println("Modifying your " + super.getAdditions().get(position).getItemName() + " additional item into...");
+        position -= 1;
+        System.out.println(getClass().getSimpleName() + ": Modifying your " + super.getAdditions().get(position).getItemName() + " additional item into...");
         this.total -= super.getAdditions().get(position).getPrice();
         super.getAdditions().set(position, item);
         System.out.println(super.getAdditions().get(position).getItemName() + " at position: " + (position + 1) + ".\nDone!\n");
         this.total += super.getAdditions().get(position).getPrice();
-        System.out.println("Meat, bread and 4 additions.");
     }
 
     public static int getTotal() {

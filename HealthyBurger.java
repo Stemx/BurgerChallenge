@@ -35,8 +35,8 @@ public class HealthyBurger extends Burger {
 
     @Override
     public void modifyAddition(int position, Items item) {
-        position = position - 1;
-        System.out.println("Modifying your " + super.getAdditions().get(position).getItemName() + " additional item into...");
+        position -= 1;
+        System.out.println(getClass().getSimpleName() + ": Modifying your " + super.getAdditions().get(position).getItemName() + " additional item into...");
         this.total -= super.getAdditions().get(position).getPrice();
 
         if (item == Items.CHIPS || item == Items.FRENCH_FRIES || item == Items.TEA
