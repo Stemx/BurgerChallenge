@@ -2,15 +2,14 @@ package com.company.mateuszstempak;
 
 import java.util.ArrayList;
 
+//Superclass for Hamburger, DeluxeBurger, HealthyBurger
 public abstract class Burger {
 
-    private static int total;
-    private static int iterator;
     private Items meat;
     private Items bread;
     private ArrayList <Items> additions;
 
-    public Burger(Items meat, Items bread, ArrayList<Items> additions) {
+    Burger(Items meat, Items bread, ArrayList<Items> additions) {
         this.meat = meat;
         this.bread = bread;
         this.additions = additions;
@@ -36,11 +35,7 @@ public abstract class Burger {
         this.bread = bread;
     }
 
-    public ArrayList<Items> getAdditions() {
+    ArrayList<Items> getAdditions() {
         return additions;
-    }
-
-    public void setAdditions(ArrayList<Items> additions) {
-        this.additions = additions;
     }
 }

@@ -4,14 +4,17 @@ import java.util.ArrayList;
 
 public class HealthyBurger extends Burger {
 
+    //static fields for class purpose
     private static int iterator;
     private static int total;
 
-    public HealthyBurger(Items meat, ArrayList<Items> additions) {
+    //constructor
+    HealthyBurger(Items meat, ArrayList<Items> additions) {
         super(meat, Items.BROWN_RYE_BREAD, additions);
-        this.total += Items.BROWN_RYE_BREAD.getPrice();
+        total += Items.BROWN_RYE_BREAD.getPrice();
     }
 
+    //add an additional item (more info: Deluxe burger)
     @Override
     public void addAddition(Items item) {
 
@@ -20,24 +23,25 @@ public class HealthyBurger extends Burger {
         }
         else if(super.getAdditions().size() < 6) {
             super.getAdditions().add(item);
-            this.total += item.getPrice();
-            this.iterator += 1;
+            total += item.getPrice();
+            iterator += 1;
         }
 
         if(super.getAdditions().size() == 6) {
             super.getAdditions().trimToSize();
         }
         else if(iterator > 6) {
-            this.total -= item.getPrice();
+            total -= item.getPrice();
             System.out.println("\nYou can't add another additional item. All of them have been chosen.");
         }
     }
 
+    //Modify addition
     @Override
     public void modifyAddition(int position, Items item) {
         position -= 1;
         System.out.println(getClass().getSimpleName() + ": Modifying your " + super.getAdditions().get(position).getItemName() + " additional item into...");
-        this.total -= super.getAdditions().get(position).getPrice();
+        total -= super.getAdditions().get(position).getPrice();
 
         if (item == Items.CHIPS || item == Items.FRENCH_FRIES || item == Items.TEA
                 || item == Items.COFFEE || item == Items.BEER) {
@@ -48,11 +52,7 @@ public class HealthyBurger extends Burger {
         }
 
         System.out.println(super.getAdditions().get(position).getItemName() + " at position: " + (position + 1) + ".\nDone!\n");
-        this.total += super.getAdditions().get(position).getPrice();
-    }
-
-    public static int getTotal() {
-        return total;
+        total += super.getAdditions().get(position).getPrice();
     }
 
     @Override
@@ -80,7 +80,11 @@ public class HealthyBurger extends Burger {
 
     @Override
     public void setMeat(Items meat) {
-        this.total += meat.getPrice();
+        total += meat.getPrice();
         super.setMeat(meat);
+    }
+
+    private static int getTotal() {
+        return total;
     }
 }
